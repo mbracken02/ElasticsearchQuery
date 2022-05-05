@@ -1,5 +1,8 @@
 # ElasticsearchQuery
 Its a simple IQueryable implementation for Elasticsearch built with Netstandard 2.0.
+Implementation of translating LINQ queries to ElasticSearch with .NET 4.6.1 that uses the Nest client.  
+
+This project borrows heavily from [ElasticLINQ](https://github.com/ElasticLINQ/ElasticLINQ) and [ElasticSearchQuery](https://github.com/leonardosimoura/ElasticsearchQuery)
 
 ## Usage
  ```csharp
@@ -17,6 +20,14 @@ See the Test project for the queries currently supported.
  ElasticQueryMapper.Map(typeof(Product), indexName, indexType);
  
  ```
+ The default mapping will need to be set in the project as part of the settings.
+ ```csharp
+ var settings = new ConnectionSettings(node);
+ settings.DefaultMappingFor<ProductTest>(m => m.IdProperty(p => p.ProductId).IndexName("producttest"));
+ settings.DefaultMappingFor<ProductTestMultiple>(m => m.IdProperty(p => p.ProductId).IndexName("producttestm"));
+ 
+ ```
+ 
 ## Suported Nest Versions
 
 Version 0.1.5 Supports ElasticSearch 7.X
@@ -26,31 +37,13 @@ Version 0.1.4 and lower Supports ElasticSearch 6.0.0 - 6.6.0
 
 ## TODO
 
-Add Custom Map for properties (Columns names / Types).
-
-Add better support for fulltext queries.
-
-Improve support for linq queries.
+Add support for SUM
 
 ## Latest Work
 
-Added support to MatchPhrase FullText Query
+Added support for Nested properties
 
-Added support to MultiMatch FullText Query
-
-Added support to Exists Query
-
-Support to ElasticSearch 7.X
-
-Added Count support.
-
-Added support for TermsQuery (collections contains methods)
-
-Added Custom Map for class (Index/Type names).
-
-Added Take and Skip support.
-
-Added OrderBy support.
+Added support for searching collections within an object using LINQ Any method
 
 ## Under development
 
