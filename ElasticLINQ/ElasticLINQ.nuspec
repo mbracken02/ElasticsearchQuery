@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Michael Bracken</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/mbracken02/ElasticsearchQuery</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>Forked off ElasticLINQ/ElasticSearchQuery and added support for Nested properties, Term Criteria, and LINQ.Any support</releaseNotes>
+    <copyright>$copyright$</copyright>
+	<dependencies>
+      <group targetFramework=".NETFramework4.6.1" />
+    </dependencies>
+  </metadata>
+
+</package>
